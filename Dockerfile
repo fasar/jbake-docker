@@ -23,8 +23,7 @@ RUN adduser --system --disabled-password --group --gecos "" ${JBAKE_USER} && \
     chown ${JBAKE_USER}:${JBAKE_USER} -R /opt/jbake* && \
     rm -rvf /opt/jbake-${JBAKE_VERSION}/example*
 
-USER ${JBAKE_USER}
 
 # CMD ["java", "-classpath", "${JBAKE_HOME}/lib/logging:${JBAKE_HOME}/lib/*", "org.jbake.launcher.Main", "/www", "public"]
-CMD ["${JBAKE_HOME}/bin/jbake", ".", "./public"]
+CMD ["jbake", "-b", "/site", "/site/public"]
 
